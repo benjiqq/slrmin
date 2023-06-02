@@ -1,0 +1,30 @@
+/*  alert  */
+
+.saito-notification-dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--saito-primary);
+  color: var(--saito-white);
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.online-status-indicator:after {
+  position: absolute;
+  display: none;
+  content: "";
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--saito-primary);
+}
+
+.online .online-status-indicator {
+  display: block;
+
+}

@@ -1,0 +1,298 @@
+.chat-manager {
+  max-height: 25vh;
+  height: 25%;
+}
+
+.chat-manager .saito-userline {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 13rem;
+  white-space: nowrap;
+}
+
+.chat-manager .saito-userline .img-prev {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.chat-popup-img-enhanced {
+  max-height: 90vh;
+  max-width: 95vw;
+}
+
+.chat-manager .saito-user {
+  padding: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.chat-manager .saito-user:hover, .chat-manager .saito-user:hover .saito-address {
+  background-color: var(--saito-primary);
+  color: var(--saito-background-color);
+}
+
+/*  Chat / Popup  */
+
+.chat-container {
+  margin-right: 1rem;
+  height: 50rem;
+  width: 36rem;
+  border-radius: 0.5rem;
+  z-index: 15; /* So weird, at 15 it blocks the z-index 20 slide in menu*/
+  /* reason: the slidein is child of saito header, so whatever z-index is assigned to saito header,
+  the child (slidein menu) inherits it */
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  border: 1px solid var(--saito-border-color);
+  background: var(--saito-arcade-background);
+  color: var(--saito-font-color);
+  max-height: calc(99vh - var(--saito-header-height));
+  overflow: hidden;
+  resize: both;
+  min-width: 300px;
+  min-height: 150px;
+}
+
+.chat-body img {
+  max-width: 100%;
+}
+
+.chat-container img.img-prev {
+  width: 100%;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--saito-border-color);
+  cursor: grab;
+  height: 4.5rem;
+  font-size: 2rem;
+}
+
+.chat-header>i {
+  margin: 0;
+  padding: 1.2rem;
+  color: var(--saito-primary);
+  font-size: 2rem;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.chat-header>i:last-child {
+  padding-bottom: 1.3rem;
+  cursor: pointer;
+}
+
+.chat-header>i:last-child:hover {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.chat-header .chat-group {
+  max-width: 95%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chat-body {
+  padding: 1rem;
+  display: block;
+  height: calc(100% - 10.4rem);
+  overflow: auto;
+  margin-bottom: 5.8rem;
+}
+
+.chat-body>.saito-user {
+  padding-bottom: 1rem;
+  cursor: default;
+  grid-template-rows: min-content 1fr;
+  min-height: 5.5rem;
+}
+
+.chat-body>.saito-user>.saito-userline {
+  font-size: 1.7rem;
+}
+
+.chat-body .saito-userline {
+  overflow-wrap: anywhere;
+}
+
+/*
+.chat-body .saito-userline:hover::after {
+  content: "reply ->";
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 999;
+  margin: 1rem;
+}
+*/
+
+
+.saito-time-stamp { 
+  text-align: center;
+  color: var(--saito-font-color-light);
+  font-style: italic;
+  margin: 3px 0;
+}
+
+.saito-chat-line-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  grid-row: span 2;
+}
+
+.saito-userline-reply {
+  display: none;
+}
+
+.chat-body .saito-userline {
+  width: 100%;
+}
+
+.saito-user:hover .saito-userline-reply {
+  display: flex;
+  position: absolute;
+  top: -3px;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--saito-background-color);
+  right: 0;
+  z-index: 9;
+}
+
+.saito-user:hover .saito-userline-reply i {
+  border: 1px solid var(--saito-border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.saito-user:hover .saito-chat-line-timestamp {
+  visibility: hidden;
+}
+
+.saito-user:hover .saito-userline-reply:hover {
+  color: var(--saito-primary);
+  border-color: var(--saito-primary);
+}
+
+.saito-user:hover .saito-userline-reply:hover i {
+  border-color: var(--saito-primary);
+}
+
+.chat-footer {
+  height: 4.5rem;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 0.5rem);
+  padding: 0.5rem;
+  display: flex;
+  flex-flow: row;
+  align-items: end;
+  z-index: 2;
+}
+
+.chat-container blockquote {
+  color: inherit;
+  line-height: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.chat-input {
+  border: 1px solid var(--saito-border-color);
+  border-radius: 0.5rem;
+  width: calc(100% - 0rem);
+  font-size: 1.6rem;
+  padding: 0.9rem 3rem 0.5rem 0.5rem;
+  outline: none;
+  background: var(--saito-arcade-background);
+  max-height: 15rem;
+  overflow-y: auto;
+  word-break: break-word;
+}
+
+.chat-footer > i {
+  color: var(--saito-primary);
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s;
+  font-size: 2rem;
+  padding: 0.8rem;
+}
+
+.chat-footer i:hover {
+  transform: rotate(45deg);
+}
+
+.dockedLeft {
+  border-left: 3px solid var(--saito-primary)!important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.dockedRight {
+  border-right: 3px solid var(--saito-primary)!important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.dockedTop {
+  border-top: 3px solid var(--saito-primary)!important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.dockedBottom {
+  border-bottom: 3px solid var(--saito-primary)!important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+
+/* Mobile Overlay */
+
+@media screen and (max-width: 600px) {
+  .chat-manager-overlay {
+    background-color: var(--saito-background-color);
+    position: absolute;
+    left: 0;
+    top: var(--saito-header-height);
+    height: 100vh;
+    width: 100vw;
+    padding-top: 1rem;
+  }
+  .chat-manager-overlay .chat-manager {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95vw;
+  }
+  /*
+  .chat-popup {
+    z-index: 10000;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+  }
+*/
+}
+
+@media screen and (max-width: 768px) {
+  .chat-container {
+    margin: 0;
+    width: 100vw;
+    height: calc(100% - var(--saito-header-height));
+    max-height: none;
+    border-radius: 0;
+  }
+}
